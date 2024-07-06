@@ -25,4 +25,6 @@ private:
     int zeroFlag;
     int carryFlag;
     int overflowFlag;
+    void execL(int control, int A, int B);
+    void execC(int control, int A, int B);
 };
