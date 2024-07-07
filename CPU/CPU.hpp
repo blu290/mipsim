@@ -10,7 +10,7 @@ class CPU{
         void setRegister(int reg, int value);
         int getRegister(int reg);
         //instructions 
-
+/*
         //arithmetic
         void add(int rd, int rs, int rt);
         void sub(int rd, int rs, int rt);
@@ -51,7 +51,7 @@ class CPU{
         void j(int target);
         void jal(int target);
         void jr(int rs);
-        
+        */
 
 
     private:
