@@ -1,10 +1,11 @@
 #include "registers.hpp"
 #include "ALU.hpp"
+#include "memory.hpp"
 class CPU{
 
 
     public:
-        CPU();
+        CPU(int memorySize);
         void printRegisters();
         void setRegister(int reg, int value);
         int getRegister(int reg);

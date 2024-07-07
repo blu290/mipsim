@@ -1,10 +1,10 @@
 #include "CPU.hpp"
 #include <iostream>
 
-CPU::CPU() {
+CPU::CPU(int memorySize) {
     Registers registers = Registers();
     ALU alu = ALU();
-
+    Memory memory = Memory(memorySize);
 }
 
 void CPU::printRegisters() {

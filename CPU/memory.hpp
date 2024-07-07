@@ -1,9 +1,9 @@
 //memory class for the CPU
 #include <cstdint>
-class memory{
+class Memory{
     public:
-        memory(int size);
-        ~memory();
+        Memory(int size);
+        ~Memory();
         void writeByte(int address, int data);
         void writeWord(int address, int data);
         uint8_t readByte(int address);

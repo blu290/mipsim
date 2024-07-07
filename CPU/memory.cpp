@@ -1,15 +1,15 @@
 #include "memory.hpp"
 
-memory::memory(int size) {
+Memory::Memory(int size) {
     this->size = size;
     data = new uint8_t[size];
 }
 
-memory::~memory() {
+Memory::~Memory() {
     delete[] data;
 }
 
-void memory::writeByte(int address, int data) {
+void Memory::writeByte(int address, int data) {
     try {
         checkAddress(address);
     } catch (const char* msg) {
@@ -19,7 +19,7 @@ void memory::writeByte(int address, int data) {
     this->data[address] = data;
 }
 
-void memory::writeWord(int address, int data) {
+void Memory::writeWord(int address, int data) {
     //we need to throw an exception if the address is not divisible by 4
     if (address % 4 != 0) {
         throw "Address is not divisible by 4";
@@ -40,7 +40,7 @@ void memory::writeWord(int address, int data) {
     this->data[address + 3] = data & 0x000F;
 }
 
-uint8_t memory::readByte(int address) {
+uint8_t Memory::readByte(int address) {
     try {
         checkAddress(address);
     } catch (const char* msg) {
@@ -49,7 +49,7 @@ uint8_t memory::readByte(int address) {
     return this->data[address];
 }
 
-int memory::readWord(int address) {
+int Memory::readWord(int address) {
     //we need to throw an exception if the address is not divisible by 4
     if (address % 4 != 0) {
         throw "Address is not divisible by 4";
@@ -67,7 +67,7 @@ int memory::readWord(int address) {
     return (this->data[address] << 12) | (this->data[address + 1] << 8) | (this->data[address + 2] << 4) | this->data[address + 3];
 }
 
-void memory::resize(int newSize) {
+void Memory::resize(int newSize) {
     uint8_t* newData = new uint8_t[newSize];
     for (int i = 0; i < newSize; i++) {
         newData[i] = data[i];
@@ -77,7 +77,7 @@ void memory::resize(int newSize) {
     size = newSize;
 }
 
-uint8_t memory::checkAddress(int address) {
+uint8_t Memory::checkAddress(int address) {
     if (address < 0 || address >= size) {
         throw "Address out of bounds";
     }
