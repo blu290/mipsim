@@ -1,7 +1,7 @@
 //ALU function
 
 #include "ALU.hpp"
-
+#include <algorithm>
 ALU::ALU() {
     result = 0;
     zeroFlag = 0;
@@ -46,13 +46,13 @@ void ALU::execC(int control, int A, int B) {
         case 2:
             result = A + B;
             zeroFlag = (result == 0);
-            carryFlag = (result < A);
+            carryFlag = (result < std::max(A, B));
             overflowFlag = (result < A);
             break;
         case 6:
             result = A - B;
             zeroFlag = (result == 0);
-            carryFlag = (result < A);
+            carryFlag = (result > A);
             overflowFlag = (result < A);
             break;
         case 7:

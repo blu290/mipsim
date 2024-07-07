@@ -3,6 +3,8 @@
 
 CPU::CPU() {
     Registers registers = Registers();
+    ALU alu = ALU();
+
 }
 
 void CPU::printRegisters() {

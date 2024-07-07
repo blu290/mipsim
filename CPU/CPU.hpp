@@ -1,4 +1,5 @@
 #include "registers.hpp"
+#include "ALU.hpp"
 class CPU{
 
 
@@ -54,5 +55,5 @@ class CPU{
 
     private:
         Registers registers;
-
+        ALU alu;
 };
