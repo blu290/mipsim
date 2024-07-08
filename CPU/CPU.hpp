@@ -1,6 +1,7 @@
 #include "registers.hpp"
 #include "ALU.hpp"
 #include "memory.hpp"
+#include "CU.hpp"
 class CPU{
 
 
@@ -57,4 +58,6 @@ class CPU{
     private:
         Registers registers;
         ALU alu;
+        Memory memory;
+        CU cu;
 };

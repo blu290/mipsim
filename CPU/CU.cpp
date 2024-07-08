@@ -1,5 +1,7 @@
 #include "CU.hpp"
 #include "instructionTypes.hpp"
+
+
 CU::CU() {
     
 }
@@ -21,3 +23,4 @@ InstructionType CU::getInstructionType(int instruction) {
     return InstructionType::I;
 
 }
+
