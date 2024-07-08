@@ -2,8 +2,15 @@
 #include <cstdint>
 class Memory{
     public:
-        Memory(int size);
-        ~Memory();
+        Memory(int size) {
+            this->size = size;
+            data = new uint8_t[size];
+        }
+
+        ~Memory() {
+        delete[] data;
+        }
+
         void writeByte(int address, int data);
         void writeWord(int address, int data);
         uint8_t readByte(int address);

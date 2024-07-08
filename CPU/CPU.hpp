@@ -6,7 +6,7 @@ class CPU{
 
 
     public:
-        CPU(int memorySize);
+        CPU(int memorySize) : registers(), alu(), memory(memorySize), cu() {}
         void printRegisters();
         void setRegister(int reg, int value);
         int getRegister(int reg);

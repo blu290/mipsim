@@ -14,7 +14,12 @@
 
 class ALU {
 public:
-    ALU();
+    ALU() {
+    result = 0;
+    zeroFlag = 0;
+    carryFlag = 0;
+    overflowFlag = 0;
+    }
     void execute(int control, int A, int B);
     int getResult();
     int getZeroFlag();

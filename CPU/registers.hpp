@@ -11,7 +11,11 @@ char *regNames[] = {"$zero",
 
 class Registers {
     public:
-        Registers();
+        Registers() {
+            for (int i = 0; i < 32; i++) {
+            registers[i] = 0;
+            }
+        };
         void setRegister(int reg, int value);
         int getRegister(int reg);
         void printRegisters();

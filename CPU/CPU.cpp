@@ -7,8 +7,7 @@
     Memory memory = Memory(memorySize);
     CU cu = CU();
 }*/
-CPU::CPU(int memorySize) : registers(), alu(), memory(memorySize), cu() {
-}
+
 
 void CPU::printRegisters() {
     registers.printRegisters();

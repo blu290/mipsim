@@ -2,12 +2,6 @@
 
 #include "ALU.hpp"
 #include <algorithm>
-ALU::ALU() {
-    result = 0;
-    zeroFlag = 0;
-    carryFlag = 0;
-    overflowFlag = 0;
-}
 
 int ALU::getCarryFlag() {
     return carryFlag;

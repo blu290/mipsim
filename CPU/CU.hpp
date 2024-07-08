@@ -9,8 +9,13 @@
 
 class CU {
     public:
-        CU();
-        ~CU();
+        CU() {
+        return;
+        }
+
+        ~CU() {
+            return;
+        }
         InstructionType getInstructionType(int instruction);
         
         template <typename T>

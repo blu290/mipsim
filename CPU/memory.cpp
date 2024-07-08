@@ -1,13 +1,5 @@
 #include "memory.hpp"
 
-Memory::Memory(int size) {
-    this->size = size;
-    data = new uint8_t[size];
-}
-
-Memory::~Memory() {
-    delete[] data;
-}
 
 void Memory::writeByte(int address, int data) {
     try {

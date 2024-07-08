@@ -1,11 +1,6 @@
 #include "registers.hpp"
 #include <iostream>
 
-Registers::Registers() {
-    for (int i = 0; i < 32; i++) {
-        registers[i] = 0;
-    }
-}
 
 void Registers::setRegister(int reg, int value) {
     registers[reg] = value;
