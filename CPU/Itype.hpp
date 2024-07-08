@@ -1,4 +1,5 @@
 #include "instruction.hpp"
+#pragma once
 class IType: public Instruction{
     public:
         IType(int instruction){
@@ -6,6 +7,9 @@ class IType: public Instruction{
             rs = (instruction >> 21) & 0x1F;
             rt = (instruction >> 16) & 0x1F;
             imm = instruction & 0xFFFF;
+        }
+        void execute() {
+            return;
         }
         int opcode;
         int rs;

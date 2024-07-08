@@ -10,6 +10,15 @@ class CPU{
         void printRegisters();
         void setRegister(int reg, int value);
         int getRegister(int reg);
+        void run();
+        
+
+        //debug functions
+        void insertByte(int address, int data){
+            memory.writeByte(address, data);
+        }
+
+
         //instructions 
 /*
         //arithmetic

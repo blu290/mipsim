@@ -23,4 +23,22 @@ class CU {
             static_assert(std::is_base_of<Instruction, T>::value, "T must be a subclass of Instruction");
             return T(instruction);
         }
+    
+    int getPC() {
+        return PC;
+    }
+    void setPC(int newPC) {
+        PC = newPC;
+    }
+    int getCIR() {
+        return CIR;
+    }
+
+    void setCIR(int newCIR) {
+        CIR = newCIR;
+    }
+
+    private:
+        int PC;
+        int CIR;
 };

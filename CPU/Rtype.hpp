@@ -1,5 +1,5 @@
 #include "instruction.hpp"
-
+#pragma once
 class RType: public Instruction{
     public:
         RType(int instruction){
@@ -10,7 +10,9 @@ class RType: public Instruction{
             shamt = (instruction >> 6) & 0x1F;
             funct = instruction & 0x3F;
         }
-
+        void execute() {
+            return;
+        }
         int opcode;
         int rs;
         int rt;
