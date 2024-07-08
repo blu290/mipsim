@@ -11,7 +11,7 @@ class CPU{
         void setRegister(int reg, int value);
         int getRegister(int reg);
         void run();
-        
+
 
         //debug functions
         void insertByte(int address, int data){
@@ -69,4 +69,42 @@ class CPU{
         ALU alu;
         Memory memory;
         CU cu;
+        void execRType(RType inst);
+        void execIType(IType inst);
+        void execJType(JType inst);
+        //function table for R Type instructions
+        //same signature so we can use a function table to call the correct function, we can handle the different instructions in the function
+        void add(int rd, int rs, int rt);   //100000
+        void addu(int rd, int rs, int rt);  //100001
+        void andf(int rd, int rs, int rt);  //100100
+        void breakf(int rd,int rs,int rt);  //001101
+        void div(int rd,int rs, int rt);    //011010
+        void divu(int rd,int rs, int rt);   //011011
+        void jalr(int rd,int rs, int rt);   //001001
+        void jr(int rd,int rs, int rt);     //001000
+        void mfhi(int rd,int rs, int rt);   //010000
+        void mflo(int rd,int rs, int rt);   //010010
+        void mthi(int rd,int rs, int rt);   //010001
+        void mtlo(int rd,int rs, int rt);   //010011
+        void mult(int rd,int rs, int rt);   //011000
+        void multu(int rd,int rs, int rt);  //011001
+        void nor(int rd,int rs, int rt);    //100111
+        void orf(int rd,int rs, int rt);    //100101
+        void sll(int rd,int rs, int rt);    //000000
+        void sllv(int rd,int rs, int rt);   //000100
+        void slt(int rd,int rs, int rt);    //101010
+        void sltu(int rd,int rs, int rt);   //101011
+        void sra(int rd,int rs, int rt);    //000011
+        void srav(int rd,int rs, int rt);   //000111
+        void srl(int rd,int rs, int rt);    //000010
+        void srlv(int rd,int rs, int rt);   //000110
+        void sub(int rd, int rs, int rt);   //100010
+        void subu(int rd, int rs, int rt);  //100011
+        void syscall(int rd, int rs, int rt);//001100
+        void xorf(int rd, int rs, int rt);   //100110
+        
+        static void *RTypeJunction[32];
+
+
+        
 };

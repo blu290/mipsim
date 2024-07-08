@@ -3,6 +3,7 @@
 #include "Rtype.hpp"
 #include "Itype.hpp"
 #include "Jtype.hpp"
+#include <stdexcept>
 void CPU::printRegisters() {
     registers.printRegisters();
 }
@@ -17,22 +18,28 @@ int CPU::getRegister(int reg) {
 
 void CPU::run(){
     //fetch instruction
-    int instruction = memory.readWord(cu.getPC());
+    int instruction = 0;
+    try{
+    instruction = memory.readWord(cu.getPC());
+    }catch(...){
+        throw std::runtime_error("not word aligned memory access");
+    }
     cu.setPC(cu.getPC() + 4);
+
     //decode instruction
-    Instruction* inst;
     InstructionType type = cu.getInstructionType(instruction);
     switch (type) {
         case InstructionType::R:
-            inst = &cu.getInstruction<RType>(instruction);
+            RType inst = cu.getInstruction<RType>(instruction);
+            //
             break;
         case InstructionType::I:
-            inst = &cu.getInstruction<IType>(instruction);
+            IType inst = cu.getInstruction<IType>(instruction);
             break;
         case InstructionType::J:
-            inst = &cu.getInstruction<JType>(instruction);
+            JType inst = cu.getInstruction<JType>(instruction);
             break;
     }
-    
+
 
 }
