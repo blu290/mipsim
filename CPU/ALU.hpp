@@ -19,17 +19,26 @@ public:
     zeroFlag = 0;
     carryFlag = 0;
     overflowFlag = 0;
+    hi = 0;
+    lo = 0;
     }
     void execute(int control, int A, int B);
     int getResult();
     int getZeroFlag();
     int getCarryFlag();
     int getOverflowFlag();
+    int getHi();
+    int getLo();
+    void setHi(int value);
+    void setLo(int value);
+    
 private:
     int result;
     int zeroFlag;
     int carryFlag;
     int overflowFlag;
+    int hi;
+    int lo;
     void execL(int control, int A, int B);
     void execC(int control, int A, int B);
 };
